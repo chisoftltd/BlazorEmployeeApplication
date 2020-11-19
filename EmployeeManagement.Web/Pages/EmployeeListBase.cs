@@ -27,7 +27,7 @@ namespace EmployeeManagement.Web.Pages
                 Email = "benjamin.uchenna@chisoftmedia.com",
                 DateOfBirth = new DateTime(1980, 10, 5),
                 Gender = Gender.Male,
-                Department = new Department { DepartmentId = 1, DepartmentName = "IT" },
+                DepartmentId = 1,
                 PhotoPath = "images/benjamin.png"
             };
 
@@ -39,7 +39,7 @@ namespace EmployeeManagement.Web.Pages
                 Email = "joy.obiageri@chisoftmedia.com",
                 DateOfBirth = new DateTime(1984, 05, 25),
                 Gender = Gender.Female,
-                Department = new Department { DepartmentId = 2, DepartmentName = "Data Analysis" },
+                DepartmentId = 2,
                 PhotoPath = "images/joy.png"
             };
 
@@ -51,7 +51,7 @@ namespace EmployeeManagement.Web.Pages
                 Email = "emma.echerem@chisoftmedia.com",
                 DateOfBirth = new DateTime(2002, 04, 15),
                 Gender = Gender.Male,
-                Department = new Department { DepartmentId = 3, DepartmentName = "Art" },
+                DepartmentId = 3,
                 PhotoPath = "images/emma.png"
             };
 
@@ -63,7 +63,7 @@ namespace EmployeeManagement.Web.Pages
                 Email = "shepherd.ebuka@chisoftmedia.com",
                 DateOfBirth = new DateTime(2012, 12, 25),
                 Gender = Gender.Male,
-                Department = new Department { DepartmentId = 1, DepartmentName = "IT" },
+                DepartmentId = 4,
                 PhotoPath = "images/shepherd.png"
             };
 
@@ -75,7 +75,7 @@ namespace EmployeeManagement.Web.Pages
                 Email = "tobechukwu.mikael@chisoftmedia.com",
                 DateOfBirth = new DateTime(2017, 10, 2),
                 Gender = Gender.Male,
-                Department = new Department { DepartmentId = 3, DepartmentName = "Sales" },
+                DepartmentId = 5,
                 PhotoPath = "images/tobechukwu.png"
             };
 
