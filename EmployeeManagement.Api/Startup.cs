@@ -51,7 +51,7 @@ namespace EmployeeManagement.Api
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
-            {
+            {                
                 endpoints.MapControllers();
             });
         }
