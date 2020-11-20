@@ -1,4 +1,5 @@
 ﻿using EmployeeManagement.Models;
+using EmployeeManagement.Web.services;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
@@ -9,77 +10,13 @@ namespace EmployeeManagement.Web.Pages
 {
     public class EmployeeListBase : ComponentBase
     {
+        [Inject]
+        public IEmployeeService EmployeeServices { get; set; }
         public IEnumerable<Employee> Employees { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-            await Task.Run(LoadEmployees);
-        }
-
-        private void LoadEmployees()
-        {
-            System.Threading.Thread.Sleep(5000);
-            Employee e1 = new Employee
-            {
-                EmployeeId = 1,
-                FirstName = "Benjamin",
-                LastName = "Uchenna",
-                Email = "benjamin.uchenna@chisoftmedia.com",
-                DateOfBirth = new DateTime(1980, 10, 5),
-                Gender = Gender.Male,
-                DepartmentId = 1,
-                PhotoPath = "images/benjamin.png"
-            };
-
-            Employee e2 = new Employee
-            {
-                EmployeeId = 2,
-                FirstName = "Joy",
-                LastName = "Obiageri",
-                Email = "joy.obiageri@chisoftmedia.com",
-                DateOfBirth = new DateTime(1984, 05, 25),
-                Gender = Gender.Female,
-                DepartmentId = 2,
-                PhotoPath = "images/joy.png"
-            };
-
-            Employee e3 = new Employee
-            {
-                EmployeeId = 3,
-                FirstName = "Emmanuel",
-                LastName = "Chinaecherem",
-                Email = "emma.echerem@chisoftmedia.com",
-                DateOfBirth = new DateTime(2002, 04, 15),
-                Gender = Gender.Male,
-                DepartmentId = 3,
-                PhotoPath = "images/emma.png"
-            };
-
-            Employee e4 = new Employee
-            {
-                EmployeeId = 4,
-                FirstName = "Shepherd",
-                LastName = "Chukwebuka",
-                Email = "shepherd.ebuka@chisoftmedia.com",
-                DateOfBirth = new DateTime(2012, 12, 25),
-                Gender = Gender.Male,
-                DepartmentId = 4,
-                PhotoPath = "images/shepherd.png"
-            };
-
-            Employee e5 = new Employee
-            {
-                EmployeeId = 5,
-                FirstName = "Tobechukwu",
-                LastName = "Mikael",
-                Email = "tobechukwu.mikael@chisoftmedia.com",
-                DateOfBirth = new DateTime(2017, 10, 2),
-                Gender = Gender.Male,
-                DepartmentId = 5,
-                PhotoPath = "images/tobechukwu.png"
-            };
-
-            Employees = new List<Employee> { e1, e2, e3, e4, e5 };
+            Employees = (await EmployeeServices.GetEmployees()).ToList();
         }
     }
 }
