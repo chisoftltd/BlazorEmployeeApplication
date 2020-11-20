@@ -8,7 +8,7 @@ namespace EmployeeManagement.Api.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Department",
+                name: "Departments",
                 columns: table => new
                 {
                     DepartmentId = table.Column<int>(type: "int", nullable: false)
@@ -17,7 +17,7 @@ namespace EmployeeManagement.Api.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Department", x => x.DepartmentId);
+                    table.PrimaryKey("PK_Departments", x => x.DepartmentId);
                 });
 
             migrationBuilder.CreateTable(
@@ -26,8 +26,8 @@ namespace EmployeeManagement.Api.Migrations
                 {
                     EmployeeId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false),
@@ -40,7 +40,7 @@ namespace EmployeeManagement.Api.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Department",
+                table: "Departments",
                 columns: new[] { "DepartmentId", "DepartmentName" },
                 values: new object[,]
                 {
@@ -67,7 +67,7 @@ namespace EmployeeManagement.Api.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Department");
+                name: "Departments");
 
             migrationBuilder.DropTable(
                 name: "Employees");
